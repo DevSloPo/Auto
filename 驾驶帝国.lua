@@ -24,11 +24,6 @@
         local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/renlua/UI-lib/refs/heads/main/Ware_UI"))()--用的123fa98的UI库
         local window = library:new("驾驶帝国丨定制")
         local XK = window:Tab("主要",'6035145364'):section("主要",true)
-        XK:Toggle("自动刷钱", "AutoFarmToggle", false, function(Value)
-            if Value then
-                coroutine.resume(AutoFarmFunc)
-            end
-        end)
         function Teleport(cframe)
         local vehicle = GetCurrentVehicle()
         if vehicle then
@@ -75,5 +70,10 @@
                     task.wait(5)
                 end
                 task.wait()
+            end
+        end)
+        XK:Toggle("自动刷钱", "AutoFarmToggle", false, function(Value)
+            if Value then
+                coroutine.resume(AutoFarmFunc)
             end
         end)
