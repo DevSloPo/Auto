@@ -390,16 +390,24 @@ end
 
 return g end function a.b()
 return{
-Dark={
-Name="Dark",
-Accent="#18181b",
-Dialog="#18181b",
-Outline="#FFFFFF",
-Text="#FFFFFF",
-Placeholder="#999999",
-Background="#0e0e10",
-Button="#52525b",
-Icon="#a1a1aa",
+Dark = {
+    Name = "Dark",
+    Accent = "#18181b",
+    Dialog = "#18181b",
+    Outline = {
+        "#FF0000", --Red
+        "#FF7F00", --Orange
+        "#FFFF00", --Yellow
+        "#00FF00", --Green
+        "#00FFFF", --Cyan
+        "#0000FF", --Blue
+        "#8B00FF"  --Purple
+    },
+    Text = "#FFFFFF",
+    Placeholder = "#999999",
+    Background = "#0e0e10",
+    Button = "#52525b",
+    Icon = "#a1a1aa",
 },
 Light={
 Name="Light",
@@ -977,7 +985,7 @@ BackgroundTransparency=1,
 v,u,
 })
 
-local x=h("输入你的卡密...","key",nil,"Input",function(x)
+local x=h("请输入卡密...","key",nil,"Input",function(x)
 p=x
 end)
 
@@ -6772,7 +6780,7 @@ x.Visible=true
 end
 end)
 
-local K=w and"点击 "..p.ToggleKey.Name.." 打开脚本"or"点击按钮重新打开脚本"
+local K=w and"点击 "..p.ToggleKey.Name.." 打开界面"or"点击开启开关，重新开启界面"
 
 if not p.IsOpenButtonEnabled then
 n=true
@@ -6781,7 +6789,7 @@ if not n then
 n=not n
 o.WindUI:Notify{
 Title="提示",
-Content="你已关闭窗口 "..K,
+Content="UI窗口已关闭 "..K,
 Icon="circle-alert",
 Duration=5,
 }
@@ -7238,7 +7246,7 @@ p:CreateTopbarButton("Close","x",function()
 g(p.UIElements.Main,0.35,{Position=UDim2.new(0.5,0,0.5,0)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
 p:Dialog{
 
-Title="警告",
+Title="XK Hub提示",
 Content="删除Wind-UI后，请重新执行脚本",
 Buttons={
 {
@@ -7330,7 +7338,7 @@ local ae=false
 
 
 
-local af=h("搜索功能","search",p.UIElements.SideBarContainer)
+local af=h("搜索","search",p.UIElements.SideBarContainer)
 af.Size=UDim2.new(1,-p.UIPadding/2,0,39)
 af.Position=UDim2.new(0,p.UIPadding/2,0,p.UIPadding/2)
 
